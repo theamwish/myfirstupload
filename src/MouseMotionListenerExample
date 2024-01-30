@@ -1,0 +1,43 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
+public class MouseMotionListenerExample extends JFrame implements MouseMotionListener {
+
+    public MouseMotionListenerExample() {
+        setTitle("MouseMotionListener Example");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 200);
+
+        // Adding MouseMotionListener to the frame
+        addMouseMotionListener(this);
+
+        // Adding a label to display mouse coordinates
+        JLabel label = new JLabel("Move the mouse!");
+        add(label, BorderLayout.SOUTH);
+    }
+
+    // Methods from MouseMotionListener interface
+    public void mouseMoved(MouseEvent e) {
+        updateLabel(e);
+    }
+
+    public void mouseDragged(MouseEvent e) {
+        updateLabel(e);
+    }
+
+    // Update label text with mouse coordinates
+    private void updateLabel(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        String text = "Mouse Coordinates: (" + x + ", " + y + ")";
+        setTitle(text);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new MouseMotionListenerExample().setVisible(true);
+        });
+    }
+}
