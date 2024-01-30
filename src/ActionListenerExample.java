@@ -10,7 +10,8 @@ public class ActionListenerExample extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 200);
 
-        // Creating buttons
+        // Creating buttons for it
+
         JButton button1 = new JButton("Button 1");
         JButton button2 = new JButton("Button 2");
         JButton button3 = new JButton("Button 3");
